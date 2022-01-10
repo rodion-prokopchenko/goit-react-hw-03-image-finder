@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react';
+import propTypes from "prop-types"
 
 import { toast } from 'react-toastify';
 import { ImSearch } from 'react-icons/im';
@@ -19,13 +20,11 @@ export default class Searchbar extends PureComponent {
     e.preventDefault();
 
     if (this.state.searchString.trim() === '') {
-      //!!! trim
-      // alert('zero string');
-      toast.error('Введите что будем искать');
+          toast.error('Введите что-то');
       return;
     }
 
-    this.props.onSubmit(this.state.searchString.trim()); // !!! trim
+    this.props.onSubmit(this.state.searchString.trim()); 
     this.setState({ searchString: '' });
   };
 
@@ -34,7 +33,7 @@ export default class Searchbar extends PureComponent {
       <header className={s.searchBar}>
         <form className={s.searchForm} onSubmit={this.handleSubmit}>
           <button type="submit" className={s.searchFormButton}>
-            {/* <span className={s.searchFormButtonLabel}>Search</span> */}
+           
             <ImSearch />
           </button>
 
@@ -45,11 +44,14 @@ export default class Searchbar extends PureComponent {
             autoFocus
             placeholder="Search images and photos"
             name="search"
-            value={this.state.searchString} // !!!
+            value={this.state.searchString} 
             onChange={this.handleInputChange}
           />
         </form>
       </header>
     );
   }
+}
+Searchbar.propTypes = {
+  searchString: propTypes.string
 }

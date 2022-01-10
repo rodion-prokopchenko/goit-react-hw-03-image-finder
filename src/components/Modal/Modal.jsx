@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { createPortal } from 'react-dom';
 import s from './Modal.module.scss';
+import propTypes from "prop-types"
 
 const modalRoot = document.getElementById('modal-root');
 
@@ -36,4 +37,8 @@ export default class Modal extends Component {
       modalRoot,
     );
   }
+}
+Modal.propTypes = {
+  src: propTypes.string.isRequired,
+  alt: propTypes.string.isRequired
 }

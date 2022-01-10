@@ -2,6 +2,7 @@ import { Component } from 'react';
 import Searchbar from 'components/Searchbar/Searchbar';
 import ImageGallery from 'components/ImageGallery/ImageGallery';
 import Modal from 'components/Modal/Modal';
+import propTypes from "prop-types"
 
 import { ToastContainer } from 'react-toastify';
 import { Zoom } from 'react-toastify';
@@ -48,3 +49,9 @@ class App extends Component {
 }
 
 export default App;
+
+App.propTypes = {
+  showModal: propTypes.bool,
+  modalImage: propTypes.string,
+  modalAlt: propTypes.string
+}

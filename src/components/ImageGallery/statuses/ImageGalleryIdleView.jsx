@@ -6,5 +6,5 @@ const style = {
 };
 
 export default function ImageGalleryIdleView() {
-  return <h2 style={style}>Введите имя поиска</h2>;
+  return <h2 style={style}>Введите что-то</h2>;
 }
